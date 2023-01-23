@@ -7,7 +7,7 @@ class Producto {
 
     }
     mostrarInfoLibro(){
-        console.log(`El titulo es ${this.bebida}, el autor es ${this.marca} y su precio es ${this.precio}`)
+        console.log(`La bebida es ${this.bebida}, la marca es ${this.marca} y su precio es ${this.precio}`)
     }
 }
 
@@ -40,7 +40,7 @@ function agregarProducto(){
 function eliminarProducto(array){
     console.log("A partir del catalogo ingrese el id que desea eliminar")
     for(let elem of array){
-        console.log(`${elem.id} - ${elem.marca} del autor ${elem.bebida}`)
+        console.log(`${elem.id} - ${elem.marca} del tipo de bebida ${elem.bebida}`)
     }
     let idEliminar = parseInt(prompt("Ingrese el id a eliminar"))
     let arrayID = array.map((producto) => producto.id)
@@ -61,7 +61,7 @@ function verCatalogo(array){
 function buscarPorMarca(array){
     let marcaBuscada = prompt("Ingrese el nombre de la marca buscada")
     let marcaEncontrada = array.find(
-        (book)=> book.marca.toLowerCase() == marcaBuscada.toLowerCase()
+        (product)=> product.marca.toLowerCase() == marcaBuscada.toLowerCase()
         )
     if(marcaEncontrada == undefined){
         console.log(`La marca ${marcaBuscada} no está en stock`)
@@ -88,7 +88,6 @@ function buscarPorBebida(arr){
 function ordenarMenorMayor(array){
         
         const menorMayor = [].concat(array)
-        
         menorMayor.sort((a,b) => a.precio - b.precio)
         verCatalogo(menorMayor)
 }
